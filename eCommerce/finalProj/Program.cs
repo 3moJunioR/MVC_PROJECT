@@ -2,12 +2,13 @@ using finalProj.Data;
 using finalProj.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace finalProj
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -18,14 +19,39 @@ namespace finalProj
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+
+            })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager=scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                //create admin role
+                if (!await roleManager.RoleExistsAsync("Admin"))
+                    await roleManager.CreateAsync(new IdentityRole("Admin"));
+                //create client role
+                if (!await roleManager.RoleExistsAsync("Customer"))
+                    await roleManager.CreateAsync(new IdentityRole("Customer"));
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+                var adminEmail = "mo@salla.com";
+                var adminUser = await userManager.FindByEmailAsync(adminEmail);
+                if (adminUser != null)
+                {
+                    await userManager.AddToRoleAsync(adminUser, "Admin");
+                }
+            }
+                // Configure the HTTP request pipeline.
+                if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
             }

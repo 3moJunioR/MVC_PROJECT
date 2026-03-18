@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ITI\\MVC\\finalProj\\finalProj\\finalProj.csproj": {}
+    "E:\\ITI\\MVC\\eCommerce\\finalProj\\finalProj.csproj": {}
   },
   "projects": {
-    "E:\\ITI\\MVC\\finalProj\\finalProj\\finalProj.csproj": {
+    "E:\\ITI\\MVC\\eCommerce\\finalProj\\finalProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ITI\\MVC\\finalProj\\finalProj\\finalProj.csproj",
+        "projectUniqueName": "E:\\ITI\\MVC\\eCommerce\\finalProj\\finalProj.csproj",
         "projectName": "finalProj",
-        "projectPath": "E:\\ITI\\MVC\\finalProj\\finalProj\\finalProj.csproj",
+        "projectPath": "E:\\ITI\\MVC\\eCommerce\\finalProj\\finalProj.csproj",
         "packagesPath": "C:\\Users\\ZT\\.nuget\\packages\\",
-        "outputPath": "E:\\ITI\\MVC\\finalProj\\finalProj\\obj\\",
+        "outputPath": "E:\\ITI\\MVC\\eCommerce\\finalProj\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -66,7 +66,15 @@
               "target": "Package",
               "version": "[8.0.23, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.23, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[8.0.23, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.23, )"
             }
