@@ -1,0 +1,249 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ITI\\MVC\\finalProj\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ITI\\MVC\\finalProj\\finalProj\\Migrations\\20260318011624_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:finalProj\\Migrations\\20260318011624_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318010832_FixedCascadeIssue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:finalProj\\Data\\Migrations\\20260318010832_FixedCascadeIssue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318010120_InitialCreate2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:finalProj\\Data\\Migrations\\20260318010120_InitialCreate2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318005840_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:finalProj\\Data\\Migrations\\20260318005840_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\finalproj\\finalproj\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260318011624_InitialCreate.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Migrations\\20260318011624_InitialCreate.cs",
+              "RelativeDocumentMoniker": "finalProj\\Migrations\\20260318011624_InitialCreate.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Migrations\\20260318011624_InitialCreate.cs",
+              "RelativeToolTip": "finalProj\\Migrations\\20260318011624_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:16:25.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20260318010832_FixedCascadeIssue.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318010832_FixedCascadeIssue.cs",
+              "RelativeDocumentMoniker": "finalProj\\Data\\Migrations\\20260318010832_FixedCascadeIssue.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318010832_FixedCascadeIssue.cs",
+              "RelativeToolTip": "finalProj\\Data\\Migrations\\20260318010832_FixedCascadeIssue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:08:33.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20260318010120_InitialCreate2.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318010120_InitialCreate2.cs",
+              "RelativeDocumentMoniker": "finalProj\\Data\\Migrations\\20260318010120_InitialCreate2.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318010120_InitialCreate2.cs",
+              "RelativeToolTip": "finalProj\\Data\\Migrations\\20260318010120_InitialCreate2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:01:20.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20260318005840_InitialCreate.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318005840_InitialCreate.cs",
+              "RelativeDocumentMoniker": "finalProj\\Data\\Migrations\\20260318005840_InitialCreate.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\Migrations\\20260318005840_InitialCreate.cs",
+              "RelativeToolTip": "finalProj\\Data\\Migrations\\20260318005840_InitialCreate.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAQwBEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T00:58:41.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Program.cs",
+              "RelativeDocumentMoniker": "finalProj\\Program.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Program.cs",
+              "RelativeToolTip": "finalProj\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T00:41:55.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Address.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Address.cs",
+              "RelativeDocumentMoniker": "finalProj\\Models\\Address.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Address.cs",
+              "RelativeToolTip": "finalProj\\Models\\Address.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T00:02:30.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "finalProj\\Models\\OrderItem.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\OrderItem.cs",
+              "RelativeToolTip": "finalProj\\Models\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T23:56:11.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Order.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "finalProj\\Models\\Order.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Order.cs",
+              "RelativeToolTip": "finalProj\\Models\\Order.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvxIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T23:51:07.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "finalProj\\Models\\Product.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Product.cs",
+              "RelativeToolTip": "finalProj\\Models\\Product.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAwwB0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T23:47:42.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Category.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "finalProj\\Models\\Category.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\Category.cs",
+              "RelativeToolTip": "finalProj\\Models\\Category.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA4AAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T23:38:43.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "finalProj\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "finalProj\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwCMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T23:34:39.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "finalProj\\Models\\ApplicationUser.cs",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "finalProj\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T23:32:04.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\ITI\\MVC\\finalProj\\finalProj\\appsettings.json",
+              "RelativeDocumentMoniker": "finalProj\\appsettings.json",
+              "ToolTip": "E:\\ITI\\MVC\\finalProj\\finalProj\\appsettings.json",
+              "RelativeToolTip": "finalProj\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T23:28:03.204Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
