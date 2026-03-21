@@ -20,6 +20,8 @@ namespace finalProj.Models
 
             public int StockQuantity { get; set; }
 
+             public string? ImageUrl { get; set; }
+
             public bool IsActive { get; set; }
 
             public DateTime CreatedAt { get; set; } = DateTime.Now; 
