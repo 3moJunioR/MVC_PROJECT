@@ -22,9 +22,24 @@ namespace finalProj.Controllers
 
         // GET: Products
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, int? categoryId)
         {
-            var products = _context.Products.Include(p => p.Category);
+            //all Prods with their categs
+            var products = _context.Products.Include(p => p.Category).AsQueryable();
+            //filter by search 
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(s => s.Name.Contains(searchString) || s.SKU.Contains(searchString));
+            }
+            //fitler by categ
+            if (categoryId.HasValue && categoryId != 0)
+            {
+                products = products.Where(x => x.CategoryId==categoryId);
+            }
+            //dropDownList
+            ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "Name", categoryId);
+            ViewData["CurrentFilter"] = searchString;
+
             return View(await products.ToListAsync());
         }
 
