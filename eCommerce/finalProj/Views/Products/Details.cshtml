@@ -1,66 +1,75 @@
 ﻿@model finalProj.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Name;
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Shop</a></li>
+            <li class="breadcrumb-item active">@Model.Category?.Name</li>
+        </ol>
+    </nav>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SKU)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SKU)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StockQuantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StockQuantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="row shadow-sm p-4 bg-white rounded-3 border">
+        <div class="col-md-6 text-center border-end">
+            <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "/images/products/default.jpg" : Model.ImageUrl)"
+                 class="img-fluid rounded shadow-sm" alt="@Model.Name"
+                 style="max-height: 450px; object-fit: contain;">
+        </div>
+
+        <div class="col-md-6 ps-md-5">
+            <h1 class="display-5 fw-bold text-dark">@Model.Name</h1>
+            <p class="text-muted mb-4">Product SKU: <span class="fw-bold">@Model.SKU</span></p>
+
+            <div class="mb-4">
+                <span class="h2 text-success fw-bold">@Model.Price.ToString("N2") EGP</span>
+            </div>
+
+            <div class="mb-4">
+                <h5 class="fw-bold text-secondary">Description</h5>
+                <p class="lead text-muted" style="line-height: 1.8;">
+                <p>No description available.</p>
+                </p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-6">
+                    <p class="mb-1 text-muted">Availability</p>
+                    @if (Model.StockQuantity > 0)
+                    {
+                        <span class="badge bg-success-subtle text-success p-2">
+                            <i class="bi bi-check-circle"></i> In Stock (@Model.StockQuantity)
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger-subtle text-danger p-2">Out of Stock</span>
+                    }
+                </div>
+                <div class="col-6">
+                    <p class="mb-1 text-muted">Category</p>
+                    <span class="badge bg-info-subtle text-info p-2">@Model.Category?.Name</span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                <button class="btn btn-primary btn-lg px-5 shadow-sm rounded-pill">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">Back to Store</a>
+            </div>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="mt-4 pt-3 border-top">
+                    <p class="small text-danger fw-bold">Admin Controls:</p>
+                    <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning btn-sm">Edit Product</a>
+                </div>
+            }
+        </div>
+    </div>
 </div>

@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\ITI\\MVC\\eCommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -70,24 +74,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Details.cshtml",
+              "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Details.cshtml",
+              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Details.cshtml",
+              "RelativeToolTip": "finalProj\\Views\\Products\\Details.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAswEoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-22T00:01:11.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Index.cshtml",
               "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Index.cshtml",
               "RelativeToolTip": "finalProj\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAADsAAAAAAAAAAAAUwEkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAAwGwAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-21T16:55:32.368Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Create.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Create.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Create.cshtml",
@@ -95,12 +112,11 @@
               "RelativeToolTip": "finalProj\\Views\\Products\\Create.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-21T16:08:05.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-21T16:08:05.629Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "finalProj\\Controllers\\ProductsController.cs",
@@ -113,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Product.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Product.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\Product.cs",
@@ -125,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Shared\\_Layout.cshtml",
@@ -133,12 +149,11 @@
               "RelativeToolTip": "finalProj\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAB0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-18T22:06:07.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T22:06:07.712Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Shared\\_LoginPartial.cshtml",
@@ -150,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "finalProj\\Controllers\\CategoriesController.cs",
@@ -162,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Program.cs",
               "RelativeDocumentMoniker": "finalProj\\Program.cs",
@@ -174,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "20260321171518_AddImageUrlToProduct.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Migrations\\20260321171518_AddImageUrlToProduct.cs",
               "RelativeDocumentMoniker": "finalProj\\Migrations\\20260321171518_AddImageUrlToProduct.cs",
@@ -186,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "finalProj\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
@@ -198,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Register.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
@@ -210,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Address.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Address.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\Address.cs",
@@ -222,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\OrderItem.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\OrderItem.cs",
@@ -234,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Order.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Order.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\Order.cs",
@@ -246,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "finalProj\\Data\\ApplicationDbContext.cs",

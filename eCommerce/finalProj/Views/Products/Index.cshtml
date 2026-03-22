@@ -1,77 +1,143 @@
 ﻿@model IEnumerable<finalProj.Models.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Store Catalog";
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6">
+            <h2 class="fw-bold text-primary"><i class="bi bi-bag-check"></i> Our Shop</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create" class="btn btn-success shadow-sm">
+                    <i class="bi bi-plus-circle"></i> Add New Product
+                </a>
+            }
+        </div>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SKU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StockQuantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SKU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StockQuantity)
-            </td>
-            <td>
-                    <img src="@item.ImageUrl" width="80px" height="80px" style="border-radius:5px; border:1px solid #ddd" />
-            </td>      
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-            </td>
-        </tr>
+    <div class="card shadow-sm border-0 mb-5" style="background-color: #f8f9fa;">
+        <div class="card-body">
+            <form asp-action="Index" method="get" id="filterForm">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <label class="small fw-bold text-muted">Search Product</label>
+                        <input type="text" id="searchInput" name="searchString" value="@ViewData["CurrentFilter"]"
+                               class="form-control" placeholder="Search by name or SKU..." autocomplete="off" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="small fw-bold text-muted">Category</label>
+                        <select name="categoryId" asp-items="ViewBag.CategoryId" id="categorySelect" class="form-select">
+                            <option value="0">All Categories</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 d-flex align-items-end gap-2">
+                        <button type="submit" class="btn btn-primary flex-grow-1 shadow-sm">
+                            Apply Filter
+                        </button>
+                        <a asp-action="Index" class="btn btn-outline-secondary shadow-sm">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (!Model.Any())
+        {
+            <div class="col-12 text-center py-5">
+                <h4 class="text-muted">No products found matching your search.</h4>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 shadow-sm border-0 hover-shadow" style="transition: 0.3s;">
+                        <div style="height: 220px; overflow: hidden; position: relative;">
+                            <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? "/images/products/default.jpg" : item.ImageUrl)"
+                                 class="card-img-top" alt="@item.Name"
+                                 style="object-fit: cover; height: 100%; width: 100%;">
+
+                            @if (item.StockQuantity <= 0)
+                            {
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Out of Stock</span>
+                            }
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="card-title mb-0 text-dark fw-bold">@item.Name</h5>
+                                    <small class="text-muted">SKU: @item.SKU</small>
+                                </div>
+                                <span class="badge bg-light text-primary border border-primary">@item.Category?.Name</span>
+                            </div>
+
+                            <p class="card-text text-success h5 fw-bold mt-2">@item.Price.ToString("N2") EGP</p>
+
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-primary">View</a>
+
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-warning">Edit</a>
+                                            <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-danger">Delete</a>
+                                        }
+                                    </div>
+                                    <button class="btn btn-primary btn-sm rounded-pill px-3">
+                                        <i class="bi bi-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<style>
+    .hover-shadow:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const form = $('#filterForm');
+            const searchInput = $('#searchInput');
+            const categorySelect = $('#categorySelect');
+
+            //  بتبعت الفورم بعد تأخير بسيط عشان ميبعتش مع كل حرف (Debounce)
+            let timeout = null;
+            searchInput.on('keyup', function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    form.submit();
+                }, 500); // نص ثانية تأخير
+            });
+
+            // بالنسبة للـ Category، يبعت فوراً أول ما يغير الاختيار
+            categorySelect.on('change', function () {
+                form.submit();
+            });
+
+            // خلي الماوس يروح لآخر الكلام في الانبوت بعد الريفرش
+            var strLength = searchInput.val().length;
+            searchInput.focus();
+            searchInput[0].setSelectionRange(strLength, strLength);
+        });
+    </script>
 }
-    </tbody>
-</table>
