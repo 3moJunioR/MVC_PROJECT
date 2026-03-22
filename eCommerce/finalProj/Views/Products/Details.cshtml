@@ -57,9 +57,12 @@
             <hr />
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-                <button class="btn btn-primary btn-lg px-5 shadow-sm rounded-pill">
+                <a asp-controller="Cart"
+                   asp-action="AddToCart"
+                   asp-route-id="@Model.ProductId"
+                   class="btn btn-primary px-4 rounded-pill">
                     <i class="bi bi-cart-plus"></i> Add to Cart
-                </button>
+                </a>
                 <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">Back to Store</a>
             </div>
 

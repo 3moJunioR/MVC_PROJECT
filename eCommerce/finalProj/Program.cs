@@ -31,6 +31,17 @@ namespace finalProj
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
+            //session
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                //protect site from XSS Attack (Cros-Site String)
+                options.Cookie.HttpOnly=true;
+                //make Session work even he use tool to prevent un nessesary Cookies
+                options.Cookie.IsEssential = true;
+            });
+
+
             var app = builder.Build();
             using (var scope = app.Services.CreateScope())
             {
@@ -66,6 +77,7 @@ namespace finalProj
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();
