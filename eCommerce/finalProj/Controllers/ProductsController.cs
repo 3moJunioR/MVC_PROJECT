@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace finalProj.Controllers
 {
@@ -22,11 +24,9 @@ namespace finalProj.Controllers
             _context = context;
         }
 
-        // GET: Products
         [AllowAnonymous]
         public async Task<IActionResult> Index(string searchString, int? categoryId)
         {
-            // cartCounter
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -36,59 +36,46 @@ namespace finalProj.Controllers
                 if (!string.IsNullOrEmpty(sessionData))
                 {
                     var cart = JsonConvert.DeserializeObject<List<CartItem>>(sessionData);
-
                     HttpContext.Session.SetInt32("CartCount", cart.Sum(x => x.Quantity));
                 }
                 else
                 {
-                    // cartisEmpty
                     HttpContext.Session.SetInt32("CartCount", 0);
                 }
             }
 
-            //all Prods with their categs
             var products = _context.Products.Include(p => p.Category).AsQueryable();
 
-            //filter by search 
             if (!string.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.Name.Contains(searchString) || s.SKU.Contains(searchString));
             }
 
-            //fitler by categ
             if (categoryId.HasValue && categoryId != 0)
             {
                 products = products.Where(x => x.CategoryId == categoryId);
             }
 
-            //dropDownList
             ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "Name", categoryId);
             ViewData["CurrentFilter"] = searchString;
 
             return View(await products.ToListAsync());
         }
 
-        // GET: Products/Details/5
         [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var product = await _context.Products
                 .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
+
+            if (product == null) return NotFound();
 
             return View(product);
         }
 
-        // GET: Products/Create
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
@@ -96,32 +83,28 @@ namespace finalProj.Controllers
             return View();
         }
 
-        // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,SKU,Price,StockQuantity,IsActive,CreatedAt,CategoryId")] Product product, IFormFile? imageFile)
+        public async Task<IActionResult> Create(Product product, IFormFile? imageFile)
         {
+            ModelState.Remove("ImageUrl");
+            ModelState.Remove("Category");
+
             if (ModelState.IsValid)
             {
                 if (imageFile != null && imageFile.Length > 0)
                 {
-                    string wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-                    string productPath = Path.Combine(wwwRootPath, @"images\products");
+                    string productPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "products");
 
-                    if (!Directory.Exists(productPath))
-                    {
-                        Directory.CreateDirectory(productPath);
-                    }
+                    if (!Directory.Exists(productPath)) Directory.CreateDirectory(productPath);
 
                     using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
                     {
                         await imageFile.CopyToAsync(fileStream);
                     }
-
-                    // storing path 
-                    product.ImageUrl = @"\images\products\" + fileName;
+                    product.ImageUrl = @"/images/products/" + fileName;
                 }
 
                 _context.Add(product);
@@ -129,57 +112,58 @@ namespace finalProj.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            //if not valid, we need to repopulate the category dropdown عشان ميرجعليش صفحة فاضيه 
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", product.CategoryId);
             return View(product);
         }
 
-        // GET: Products/Edit/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var product = await _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
+            if (product == null) return NotFound();
+
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", product.CategoryId);
             return View(product);
         }
 
-        // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,SKU,Price,StockQuantity,ImageUrl,IsActive,CreatedAt,CategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id, Product product)
         {
-            if (id != product.ProductId)
-            {
-                return NotFound();
-            }
+            if (id != product.ProductId) return NotFound();
+
+            ModelState.Remove("Category");
+            ModelState.Remove("ImageUrl");
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(product);
+                    var productInDb = await _context.Products.FindAsync(id);
+                    if (productInDb == null) return NotFound();
+
+                    productInDb.Name = product.Name;
+                    productInDb.SKU = product.SKU;
+                    productInDb.Price = product.Price;
+                    productInDb.StockQuantity = product.StockQuantity;
+                    productInDb.CategoryId = product.CategoryId;
+                    productInDb.IsActive = product.IsActive;
+
+                    if (!string.IsNullOrEmpty(product.ImageUrl))
+                    {
+                        productInDb.ImageUrl = product.ImageUrl;
+                    }
+
+                    _context.Update(productInDb);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.ProductId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!ProductExists(product.ProductId)) return NotFound();
+                    else throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -187,27 +171,34 @@ namespace finalProj.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<IActionResult> UpdateStock(int productId, int extraQuantity)
+        {
+            var product = await _context.Products.FindAsync(productId);
+            if (product != null && extraQuantity > 0)
+            {
+                product.StockQuantity += extraQuantity;
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Stock Updated Successfully";
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var product = await _context.Products
                 .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
+
+            if (product == null) return NotFound();
 
             return View(product);
         }
 
-        // POST: Products/Delete/5
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

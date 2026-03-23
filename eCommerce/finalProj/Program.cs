@@ -1,4 +1,4 @@
-using finalProj.Data;
+﻿using finalProj.Data;
 using finalProj.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,12 +12,14 @@ namespace finalProj
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+            // HttpContextAccessor to use session useful
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
                 options.SignIn.RequireConfirmedAccount = false;
@@ -25,32 +27,33 @@ namespace finalProj
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-
             })
-                .AddRoles<IdentityRole>()
+                .AddRoles<IdentityRole>() // بأكتف ال Roles
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             builder.Services.AddControllersWithViews();
 
-            //session
+            // 2. Session Configuration
             builder.Services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
-                //protect site from XSS Attack (Cros-Site String)
-                options.Cookie.HttpOnly=true;
-                //make Session work even he use tool to prevent un nessesary Cookies
+                options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
+                // to prevent conflict bween cookies & sessions
+                options.Cookie.Name = ".Salla.Session";
             });
 
-
             var app = builder.Build();
+
+            // 3. Seeding Admin Data (كودك ممتاز هنا)
             using (var scope = app.Services.CreateScope())
             {
-                var roleManager=scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-                //create admin role
+
                 if (!await roleManager.RoleExistsAsync("Admin"))
                     await roleManager.CreateAsync(new IdentityRole("Admin"));
-                //create client role
+
                 if (!await roleManager.RoleExistsAsync("Customer"))
                     await roleManager.CreateAsync(new IdentityRole("Customer"));
 
@@ -58,43 +61,49 @@ namespace finalProj
                 var adminUser = await userManager.FindByEmailAsync(adminEmail);
                 if (adminUser != null)
                 {
-                    await userManager.AddToRoleAsync(adminUser, "Admin");
+                    // بتأكد إن اليوزر متضاف للرول
+                    if (!await userManager.IsInRoleAsync(adminUser, "Admin"))
+                    {
+                        await userManager.AddToRoleAsync(adminUser, "Admin");
+                    }
                 }
             }
-                // Configure the HTTP request pipeline.
-                if (app.Environment.IsDevelopment())
+
+            // 4. Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication(); 
+            app.UseAuthorization();
             app.UseSession();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            // logout
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.Value.Contains("/Identity/Account/Logout"))
+                {
+                    //clear session data(counter) when user logOut
+                    context.Session.Remove("CartCount");
+                }
+                await next();
+            });
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Products}/{action=Index}/{id?}");
             app.MapRazorPages();
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Path.Value.Contains("/Identity/Account/Logout"))
-                {
-                    //clear session when yser logout
-                    context.Session.Remove("CartCount");
-                }
-                await next();
-            });
 
             app.Run();
         }

@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <div class="row mb-4 align-items-center">
         <div class="col-md-6">
-            <h2 class="fw-bold text-primary"><i class="bi bi-bag-check"></i> Our Shop</h2>
+            <h2 class="fw-bold text-primary"><i class="bi bi-bag-check"></i> StoreHub</h2>
         </div>
     </div>
 
@@ -83,8 +83,22 @@
                                         @* buttons for admin only *@
                                         @if (User.IsInRole("Admin"))
                                         {
-                                            <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-warning">Edit</a>
-                                            <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-danger">Delete</a>
+                                            <div class="d-flex flex-column gap-2 border-bottom pb-2 mb-2">
+                                                <div class="btn-group w-100">
+                                                    <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-warning">Edit</a>
+                                                    <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-danger">Delete</a>
+                                                </div>
+
+                                                @* فورم تزويد المخزن - مخفية عن اليوزر وعظيمة للأدمن *@
+                                                <form asp-action="UpdateStock" method="post" class="input-group input-group-sm">
+                                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                                    <input type="number" name="extraQuantity" class="form-control" placeholder="Add Qty" min="1" required />
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="bi bi-plus-lg"></i>
+                                                    </button>
+                                                </form>
+                                                <small class="text-muted">Current Stock: <strong>@item.StockQuantity</strong></small>
+                                            </div>
                                         }
                                     </div>
 

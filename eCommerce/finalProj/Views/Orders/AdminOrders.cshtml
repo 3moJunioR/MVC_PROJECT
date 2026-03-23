@@ -1,0 +1,77 @@
+﻿@model IEnumerable<finalProj.Models.Order>
+
+@{
+    ViewData["Title"] = "إدارة الطلبات";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary"><i class="bi bi-cart-check"></i> StoreHub - Orders Management</h2>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="ps-4 fw-bold">#@item.OrderNumber</td>
+                                <td>@item.User?.UserName</td>
+                                <td>@item.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td class="text-success fw-bold">@item.TotalAmount.ToString("N2") EGP</td>
+                                <td>
+                                    @{
+                                        var badgeClass = item.Status switch
+                                        {
+                                            finalProj.Models.Order.OrderStatus.Pending => "bg-warning text-dark",
+                                            finalProj.Models.Order.OrderStatus.Shipped => "bg-success",
+                                            finalProj.Models.Order.OrderStatus.Cancelled => "bg-danger",
+                                            finalProj.Models.Order.OrderStatus.Delivered => "bg-blue",
+                                            _ => "bg-secondary"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass">@item.Status</span>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <form asp-action="UpdateStatus" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value="@item.OrderId" />
+                                            <input type="hidden" name="newStatus" value="1" /> @* 1 = Approved *@
+                                            <button type="submit" class="btn btn-sm btn-success" title="Accept Order">
+                                                <i class="bi bi-check-lg"></i> Accept
+                                            </button>
+                                        </form>
+
+                                        <form asp-action="UpdateStatus" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value="@item.OrderId" />
+                                            <input type="hidden" name="newStatus" value="2" /> @* 2 = Cancelled/Rejected *@
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Reject Order">
+                                                <i class="bi bi-x-lg"></i> Reject
+                                            </button>
+                                        </form>
+
+                                        <a asp-action="OrderDetails" asp-route-id="@item.OrderId" class="btn btn-sm btn-outline-primary">
+                                            Details
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
