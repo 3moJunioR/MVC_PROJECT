@@ -44,13 +44,8 @@
                                 <i class="bi bi-cart4 fs-5"></i>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">
                                     @{
-                                        var cartData = Context.Session.GetString("Cart");
-                                        var count = 0;
-                                        if (!string.IsNullOrEmpty(cartData))
-                                        {
-                                            var cart = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CartItem>>(cartData);
-                                            count = cart.Sum(x => x.Quantity);
-                                        }
+                                        // بنقرأ الرقم اللي الكنترولر حسبه وسيفه جاهز
+                                        var count = Context.Session.GetInt32("CartCount") ?? 0;
                                     }
                                     @count
                                 </span>

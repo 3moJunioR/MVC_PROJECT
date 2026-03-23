@@ -6,6 +6,13 @@ namespace finalProj.Models
 {
     public class Order
     {
+        public enum OrderStatus
+        {
+            Pending = 0,
+            Shipped = 1,
+            Delivered = 2,
+            Cancelled = 3
+        }
         [Key]
         public int OrderId { get; set; }
         public string UserId { get; set; }
@@ -15,7 +22,7 @@ namespace finalProj.Models
         [ForeignKey("ShippingAddressId")]
         public virtual Address ShippingAddress { get; set; }
         public string OrderNumber { get; set; }
-        public int Status { get; set; }
+        public OrderStatus Status { get; set; }
         public DateTime OrderDate { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalAmount { get; set; }

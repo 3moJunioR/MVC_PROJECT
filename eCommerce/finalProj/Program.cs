@@ -86,6 +86,15 @@ namespace finalProj
                 name: "default",
                 pattern: "{controller=Products}/{action=Index}/{id?}");
             app.MapRazorPages();
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.Value.Contains("/Identity/Account/Logout"))
+                {
+                    //clear session when yser logout
+                    context.Session.Remove("CartCount");
+                }
+                await next();
+            });
 
             app.Run();
         }

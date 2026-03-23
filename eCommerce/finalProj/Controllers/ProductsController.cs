@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Security.Claims;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,18 +26,41 @@ namespace finalProj.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(string searchString, int? categoryId)
         {
+            // cartCounter
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var key = $"Cart_{userId}";
+                var sessionData = HttpContext.Session.GetString(key);
+
+                if (!string.IsNullOrEmpty(sessionData))
+                {
+                    var cart = JsonConvert.DeserializeObject<List<CartItem>>(sessionData);
+
+                    HttpContext.Session.SetInt32("CartCount", cart.Sum(x => x.Quantity));
+                }
+                else
+                {
+                    // cartisEmpty
+                    HttpContext.Session.SetInt32("CartCount", 0);
+                }
+            }
+
             //all Prods with their categs
             var products = _context.Products.Include(p => p.Category).AsQueryable();
+
             //filter by search 
             if (!string.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.Name.Contains(searchString) || s.SKU.Contains(searchString));
             }
+
             //fitler by categ
             if (categoryId.HasValue && categoryId != 0)
             {
-                products = products.Where(x => x.CategoryId==categoryId);
+                products = products.Where(x => x.CategoryId == categoryId);
             }
+
             //dropDownList
             ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "Name", categoryId);
             ViewData["CurrentFilter"] = searchString;
@@ -72,8 +97,6 @@ namespace finalProj.Controllers
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -111,7 +134,6 @@ namespace finalProj.Controllers
             return View(product);
         }
 
-
         // GET: Products/Edit/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
@@ -131,8 +153,6 @@ namespace finalProj.Controllers
         }
 
         // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]

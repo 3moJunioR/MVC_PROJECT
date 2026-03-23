@@ -39,8 +39,6 @@
                                     </div>
                                 </td>
                                 <td>@item.Price.ToString("N2") EGP</td>
-
-                                @* التصليح هنا: حطينا الأزرار جوه td *@
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
                                         <a asp-action="Decrease" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary rounded-circle">
@@ -75,43 +73,20 @@
                             <span>Subtotal:</span>
                             <span class="fw-bold">@Model.Sum(x => x.Total).ToString("N2") EGP</span>
                         </div>
-                        <div class="d-flex justify-content-between mb-3 text-success h5">
+                        <div class="d-flex justify-content-between mb-4 text-success h5">
                             <strong>Total:</strong>
                             <strong>@Model.Sum(x => x.Total).ToString("N2") EGP</strong>
                         </div>
-                        <!--Address-->
-                        <div class="mt-4 pt-3 border-top">
-                            <label class="form-label fw-bold text-secondary">
-                                <i class="bi bi-geo-alt-fill"></i> Shipping Address
-                            </label>
-                            <textarea id="shippingAddress" class="form-control mb-3" rows="2"
-                                  placeholder="Enter your street name, building number, and city..." required></textarea>
-                        </div>
 
                         <div class="d-grid gap-2">
-                            <form asp-action="ConfirmOrder" method="post" id="confirmForm">
-                                <input type="hidden" name="userAddress" id="hiddenAddress" />
-                                <button type="submit" onclick="updateAddress()" class="btn btn-success btn-lg shadow-sm w-100 py-3 fw-bold">
-                                    PLACE ORDER & PAY
-                                </button>
-                            </form>
+                            <a asp-controller="Orders" asp-action="Checkout" class="btn btn-success btn-lg w-100 fw-bold shadow-sm">
+                                Proceed to Checkout <i class="bi bi-arrow-right"></i>
+                            </a>
 
                             <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary mt-2">
                                 <i class="bi bi-arrow-left"></i> Continue Shopping
                             </a>
                         </div>
-                        <script>
-                            function updateAddress() {
-                                var addr = document.getElementById('shippingAddress').value;
-                                if(addr.trim() === "") {
-                                     // MakeAddressRequired
-                                  alert("Please enter your shipping address");
-                                  event.preventDefault(); //prevent submmit
-                                     return;
-                                }
-                                document.getElementById('hiddenAddress').value = addr;
-                            }
-                        </script>
                     </div>
                 </div>
             </div>

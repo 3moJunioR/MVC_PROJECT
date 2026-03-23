@@ -1,0 +1,69 @@
+﻿@model finalProj.Models.ViewModels.CheckoutVM
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Finalize Your Order</h2>
+
+    <form asp-controller="Orders" asp-action="ConfirmOrder" method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4">
+                    <h4 class="border-bottom pb-2">Shipping Address</h4>
+
+                    <div class="mb-3">
+                        <label asp-for="Country" class="form-label">Country</label>
+                        <input asp-for="Country" class="form-control" placeholder="e.g. Egypt" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="City" class="form-label">City</label>
+                        <input asp-for="City" class="form-control" placeholder="e.g. Cairo" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Street" class="form-label">Street Address</label>
+                        <input asp-for="Street" class="form-control" placeholder="e.g. 123 Nile St." />
+                        <span asp-validation-for="Street" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Zip" class="form-label">Zip Code</label>
+                        <input asp-for="Zip" class="form-control" placeholder="12345" />
+                        <span asp-validation-for="Zip" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm p-4 bg-light">
+                    <h4 class="border-bottom pb-2">Order Summary</h4>
+                    <div class="d-flex justify-content-between mt-3">
+                        <span>Total Amount:</span>
+                        <strong class="text-success h4">@Model.TotalAmount.ToString("N2") EGP</strong>
+                    </div>
+
+                    <hr />
+
+                    <button type="submit" class="btn btn-success btn-lg w-100 fw-bold shadow">
+                        PLACE ORDER NOW
+                    </button>
+
+                    <a asp-controller="Cart" asp-action="Index" class="btn btn-link w-100 mt-2 text-secondary">
+                        Back to Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

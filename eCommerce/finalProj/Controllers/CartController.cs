@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace finalProj.Controllers
 {
@@ -19,7 +20,13 @@ namespace finalProj.Controllers
             var cart = GetCart();
             return View(cart);
         }
-        
+        private string GetCartSessionKey()
+        {
+            //get user id if logged in else use we useguesr
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "Guest";
+            return $"Cart_{userId}";
+        }
+
         public IActionResult AddToCart(int id)
         {
             var product = _context.Products.Find(id);
@@ -60,50 +67,60 @@ namespace finalProj.Controllers
             SaveCart(cart);
             return RedirectToAction("Index", "Products");
         }
-        [HttpPost]
-        [Authorize]
-        public IActionResult ConfirmOrder(string userAddress)
-        {
-            if (string.IsNullOrEmpty(userAddress))
-            {
-                TempData["ErrorMessage"] = "Please enter your shipping address!";
-                return RedirectToAction("Index");
-            }
+       // [HttpPost]
+       // [Authorize]
+        //public IActionResult ConfirmOrder(Address address)
+        //{
+        //    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    address.UserId = userId;
+        //    _context.Addresses.Add(address);
+        //    _context.SaveChanges();
+        //    var order = new Order
+        //    {
+        //        UserId = userId,
+        //        ShippingAddressId = address.AddressId, 
+        //        OrderDate = DateTime.Now,
+        //        Status = Order.OrderStatus.Pending,
+        //        OrderNumber = Guid.NewGuid().ToString().Substring(0, 8).ToUpper() 
+        //    };
+        //    _context.Orders.Add(order);
+        //    _context.SaveChanges();
+        //    var cart = GetCart();
+        //    foreach (var item in cart)
+        //    {
+        //        var orderItem = new OrderItem
+        //        {
+        //            OrderId = order.OrderId,
+        //            ProductId = item.ProductId,
+        //            Quantity = item.Quantity,
+        //            UnitPrice = item.Price
+        //        };
+        //        _context.OrderItems.Add(orderItem);
+        //        var product = _context.Products.Find(item.ProductId);
+        //        if (product != null) product.StockQuantity -= item.Quantity;
+        //    }
 
-            var cart = GetCart(); 
+        //    _context.SaveChanges();
+        //    HttpContext.Session.Remove("Cart");
 
-            if (cart == null || !cart.Any())
-            {
-                return RedirectToAction("Index");
-            }
+        //    TempData["SuccessMessage"] = $"Order #{order.OrderNumber} placed successfully, وهنبعتهولك حالا";
+        //    return RedirectToAction("Index", "Products");
 
-            foreach (var item in cart)
-            {
-                var product = _context.Products.Find(item.ProductId);
-
-                if (product != null)
-                {
-                    product.StockQuantity -= item.Quantity;
-                }
-            }
-
-            _context.SaveChanges();
-
-            HttpContext.Session.Remove("Cart");
-
-            TempData["SuccessMessage"] = "Order placed successfully, هنبعتهولك حالا.";
-            return RedirectToAction("Index", "Products");
-        }
+        //}
         //helperJobs for dealing with sessions
         private List<CartItem> GetCart()
         {
-            var sessionData = HttpContext.Session.GetString("Cart");
-            return sessionData == null ? new List<CartItem>() : JsonConvert
-                .DeserializeObject < List < CartItem >> (sessionData); 
+            var key = GetCartSessionKey();
+            var sessionData = HttpContext.Session.GetString(key);
+            return sessionData == null ? new List<CartItem>() 
+                : JsonConvert.DeserializeObject<List<CartItem>>(sessionData);
         }
         private void SaveCart(List<CartItem> cart)
         {
-            HttpContext.Session.SetString("Cart", JsonConvert.SerializeObject(cart));
+            var key = GetCartSessionKey();
+            HttpContext.Session.SetString(key, JsonConvert.SerializeObject(cart));
+            int totalItems = cart.Sum(i => i.Quantity);
+            HttpContext.Session.SetInt32("CartCount", totalItems);
         }
         public IActionResult Increase(int id)
         {
