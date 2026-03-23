@@ -173,11 +173,11 @@ namespace finalProj.Controllers
         public async Task<IActionResult> OrderDetails(int id)
         {
             var order = await _context.Orders
-                .Include(o => o.User)
-                .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.Product)
-                .Include(o => o.ShippingAddress)
-                .FirstOrDefaultAsync(o => o.OrderId == id);
+        .Include(o => o.User)
+        .Include(o => o.OrderItems)
+            .ThenInclude(oi => oi.Product)
+        .Include(o => o.ShippingAddress)
+        .FirstOrDefaultAsync(o => o.OrderId == id);
 
             if (order == null) return NotFound();
 

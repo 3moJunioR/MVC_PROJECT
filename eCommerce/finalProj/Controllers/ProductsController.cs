@@ -46,6 +46,11 @@ namespace finalProj.Controllers
 
             var products = _context.Products.Include(p => p.Category).AsQueryable();
 
+            // لو اللي داخل مش أدمن اعرض له IsActive بس
+            if (!User.IsInRole("Admin"))
+            {
+                products = products.Where(p => p.IsActive);
+            }
             if (!string.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.Name.Contains(searchString) || s.SKU.Contains(searchString));
