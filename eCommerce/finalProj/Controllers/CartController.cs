@@ -1,7 +1,8 @@
 ﻿using finalProj.Data;
 using finalProj.Models;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace finalProj.Controllers
@@ -18,7 +19,7 @@ namespace finalProj.Controllers
             var cart = GetCart();
             return View(cart);
         }
-        //addProd to cart
+        
         public IActionResult AddToCart(int id)
         {
             var product = _context.Products.Find(id);
@@ -28,7 +29,7 @@ namespace finalProj.Controllers
                 return RedirectToAction("Index", "Products");
             }
             //product.StockQuantity -= 1
-            _context.SaveChanges();
+           // _context.SaveChanges();
             var cart = GetCart();
             var cartItem = cart.FirstOrDefault(c => c.ProductId == id);
                 //check on quantity
@@ -59,9 +60,16 @@ namespace finalProj.Controllers
             SaveCart(cart);
             return RedirectToAction("Index", "Products");
         }
-
-        public IActionResult ConfirmOrder()
+        [HttpPost]
+        [Authorize]
+        public IActionResult ConfirmOrder(string userAddress)
         {
+            if (string.IsNullOrEmpty(userAddress))
+            {
+                TempData["ErrorMessage"] = "Please enter your shipping address!";
+                return RedirectToAction("Index");
+            }
+
             var cart = GetCart(); 
 
             if (cart == null || !cart.Any())
@@ -83,7 +91,7 @@ namespace finalProj.Controllers
 
             HttpContext.Session.Remove("Cart");
 
-            TempData["Success"] = "Order placed successfully, هنبعتهولك حالا.";
+            TempData["SuccessMessage"] = "Order placed successfully, هنبعتهولك حالا.";
             return RedirectToAction("Index", "Products");
         }
         //helperJobs for dealing with sessions
