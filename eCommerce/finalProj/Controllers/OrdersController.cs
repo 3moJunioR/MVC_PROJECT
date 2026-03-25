@@ -121,7 +121,7 @@ namespace finalProj.Controllers
                     HttpContext.Session.Remove(GetCartSessionKey());
                     HttpContext.Session.SetInt32("CartCount", 0);
 
-                    TempData["SuccessMessage"] = $"Order #{order.OrderNumber} placed successfully!";
+                    TempData["SuccessMessage"] = $"Order #{order.OrderNumber} placed successfully, هنبعتههولك بكرة";
                     return RedirectToAction("MyOrders");
                 }
                 catch (Exception ex)
@@ -143,7 +143,7 @@ namespace finalProj.Controllers
             return View(orders);
         }
 
-        // --- Admin Actions ---
+        // Admin Actions
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AdminOrders()
