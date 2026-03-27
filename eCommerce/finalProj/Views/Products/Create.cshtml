@@ -1,71 +1,79 @@
 ﻿@model finalProj.Models.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "إضافة منتج جديد";
 }
 
-<h1>Create</h1>
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">إضافة منتج جديد</h3>
+        </div>
+        <div class="card-body">
+            @* enctype="multipart/form-data" مهمة جداً لرفع الصور *@
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Product Image</label>
-                <input type="file" name="imageFile" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="SKU" class="control-label"></label>
-                <input asp-for="SKU" class="form-control" />
-                <span asp-validation-for="SKU" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StockQuantity" class="control-label"></label>
-                <input asp-for="StockQuantity" class="form-control" />
-                <span asp-validation-for="StockQuantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="control-label">اسم المنتج</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="SKU" class="control-label">SKU</label>
+                            <input asp-for="SKU" class="form-control" />
+                            <span asp-validation-for="SKU" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CategoryId" class="control-label">الفئة (Category)</label>
+                            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+                                <option value="">-- اختر الفئة --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label asp-for="Price" class="control-label">السعر</label>
+                            <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="StockQuantity" class="control-label">الكمية في المخزن</label>
+                            <input asp-for="StockQuantity" class="form-control" type="number" />
+                            <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">صورة المنتج</label>
+                            @* اسم الـ name لازم يكون imageFile زي الكنترولر *@
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3 form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsActive" checked /> تفعيل المنتج (يظهر في المتجر)
+                    </label>
+                </div>
+
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-success px-5">حفظ المنتج</button>
+                    <a asp-action="Index" class="btn btn-secondary">العودة للقائمة</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

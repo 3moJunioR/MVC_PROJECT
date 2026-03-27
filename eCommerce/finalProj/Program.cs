@@ -42,6 +42,16 @@ namespace finalProj
                 // to prevent conflict bween cookies & sessions
                 options.Cookie.Name = ".Salla.Session";
             });
+            builder.Services.Configure<Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions>(options =>
+            {
+                options.Limits.MaxRequestBodySize = null; // عشان لو الفايلز حجمه كبير يستقبله عادي
+            });
+            builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
+            {
+                options.ValueLengthLimit = int.MaxValue;
+                options.MultipartBodyLengthLimit = int.MaxValue; // يسمح بأحجام كبيرة للصور
+                options.MultipartHeadersLengthLimit = int.MaxValue;
+            });
 
             var app = builder.Build();
 

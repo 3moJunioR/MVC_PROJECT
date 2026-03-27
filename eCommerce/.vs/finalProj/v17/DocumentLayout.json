@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "E:\\ITI\\MVC\\eCommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\orders\\myorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -23,24 +43,8 @@
       "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\orders\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\views\\orders\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|solutionrelative:finalproj\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8307CCF2-D4E7-493C-A950-988C073FF987}|finalProj\\finalProj.csproj|e:\\iti\\mvc\\ecommerce\\finalproj\\views\\orders\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -94,50 +98,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Checkout.cshtml",
-              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\Checkout.cshtml",
-              "RelativeDocumentMoniker": "finalProj\\Views\\Orders\\Checkout.cshtml",
-              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\Checkout.cshtml",
-              "RelativeToolTip": "finalProj\\Views\\Orders\\Checkout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-23T16:10:26.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminOrders.cshtml",
-              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\AdminOrders.cshtml",
-              "RelativeDocumentMoniker": "finalProj\\Views\\Orders\\AdminOrders.cshtml",
-              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\AdminOrders.cshtml",
-              "RelativeToolTip": "finalProj\\Views\\Orders\\AdminOrders.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAADwvzIAAABuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-23T20:28:11.236Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Index.cshtml",
-              "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Index.cshtml",
-              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Index.cshtml",
-              "RelativeToolTip": "finalProj\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAwJwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-22T17:27:26.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Create.cshtml",
+              "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Create.cshtml",
+              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Create.cshtml",
+              "RelativeToolTip": "finalProj\\Views\\Products\\Create.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAwEwAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T14:41:18.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MyOrders.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\MyOrders.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Orders\\MyOrders.cshtml",
@@ -145,12 +123,11 @@
               "RelativeToolTip": "finalProj\\Views\\Orders\\MyOrders.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-23T19:29:48.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T19:29:48.923Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "finalProj\\Controllers\\OrdersController.cs",
@@ -158,18 +135,17 @@
               "RelativeToolTip": "finalProj\\Controllers\\OrdersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T16:17:08.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T16:17:08.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "finalProj\\Controllers\\ProductsController.cs",
               "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "finalProj\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACEAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAAwPkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T17:26:32.11Z",
               "EditorCaption": ""
@@ -182,52 +158,90 @@
               "RelativeDocumentMoniker": "finalProj\\Program.cs",
               "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Program.cs",
               "RelativeToolTip": "finalProj\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T16:31:20.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "finalProj\\Controllers\\CategoriesController.cs",
               "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\CategoriesController.cs",
               "RelativeToolTip": "finalProj\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAwHQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T09:45:33.235Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "CartController.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "finalProj\\Controllers\\CartController.cs",
               "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Controllers\\CartController.cs",
               "RelativeToolTip": "finalProj\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAAK8AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T16:38:31.646Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Product.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Product.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\Product.cs",
               "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Product.cs",
               "RelativeToolTip": "finalProj\\Models\\Product.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T23:26:20.367Z"
+              "WhenOpened": "2026-03-23T23:26:20.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Index.cshtml",
+              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "finalProj\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAADwv2oAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T14:53:22.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminOrders.cshtml",
+              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\AdminOrders.cshtml",
+              "RelativeDocumentMoniker": "finalProj\\Views\\Orders\\AdminOrders.cshtml",
+              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\AdminOrders.cshtml",
+              "RelativeToolTip": "finalProj\\Views\\Orders\\AdminOrders.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAADwvzIAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-23T20:28:11.236Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "finalProj\\Views\\Orders\\Checkout.cshtml",
+              "ToolTip": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\Checkout.cshtml",
+              "RelativeToolTip": "finalProj\\Views\\Orders\\Checkout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-23T16:10:26.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "OrderDetails.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Orders\\OrderDetails.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Orders\\OrderDetails.cshtml",
@@ -239,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Order.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Order.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\Order.cs",
@@ -251,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Edit.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Edit.cshtml",
@@ -263,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Login.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
@@ -275,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "CheckoutVM.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\ViewModels\\CheckoutVM.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\ViewModels\\CheckoutVM.cs",
@@ -287,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "finalProj\\Data\\ApplicationDbContext.cs",
@@ -299,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Address.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\Address.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\Address.cs",
@@ -311,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\OrderItem.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\OrderItem.cs",
@@ -323,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "CartItem.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\CartItem.cs",
@@ -335,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Details.cshtml",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Views\\Products\\Details.cshtml",
               "RelativeDocumentMoniker": "finalProj\\Views\\Products\\Details.cshtml",
@@ -347,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "E:\\ITI\\MVC\\eCommerce\\finalProj\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "finalProj\\Models\\ApplicationUser.cs",

@@ -1,2 +1,0 @@
-E:\ITI\MVC\eCommerce\finalProj\wwwroot\images\products\10.avif
-E:\ITI\MVC\eCommerce\finalProj\wwwroot\images\products\11.avif

@@ -5,12 +5,19 @@
 }
 
 <div class="container mt-4">
-    <div class="row mb-4 align-items-center">
-        <div class="col-md-6">
-            <h2 class="fw-bold text-primary"><i class="bi bi-bag-check"></i> StoreHub</h2>
-        </div>
+    @* الـ Header المعدل: العنوان وزرار الإضافة في سطر واحد *@
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary mb-0"><i class="bi bi-bag-check"></i> StoreHub</h2>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn btn-primary shadow-sm rounded-pill px-4">
+                <i class="bi bi-plus-circle"></i> Add New Product
+            </a>
+        }
     </div>
 
+    @* قسم الفلتر والبحث *@
     <div class="card shadow-sm border-0 mb-5" style="background-color: #f8f9fa;">
         <div class="card-body">
             <form asp-action="Index" method="get" id="filterForm">
@@ -39,6 +46,7 @@
         </div>
     </div>
 
+    @* عرض المنتجات *@
     <div class="row">
         @if (!Model.Any())
         {
@@ -144,7 +152,7 @@
             const searchInput = $('#searchInput');
             const categorySelect = $('#categorySelect');
 
-            //  بتبعت الفورم بعد تأخير بسيط عشان ميبعتش مع كل حرف (Debounce)
+            //  بتبعت الفورم بعد تأخير بسيط عشان ميبعتش مع كل حرف (Debounce)
             let timeout = null;
             searchInput.on('keyup', function () {
                 clearTimeout(timeout);

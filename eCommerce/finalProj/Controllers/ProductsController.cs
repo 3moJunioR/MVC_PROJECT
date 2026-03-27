@@ -12,16 +12,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Hosting; // إضافة المكتبة دي ضروري
 
 namespace finalProj.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment; // إضافة المتغير ده للتعامل مع ملفات السيرفر
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment; // حقن الخدمة في الكنترولر
         }
 
         [AllowAnonymous]
@@ -98,23 +101,36 @@ namespace finalProj.Controllers
 
             if (ModelState.IsValid)
             {
-                if (imageFile != null && imageFile.Length > 0)
+                try
                 {
-                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-                    string productPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "products");
-
-                    if (!Directory.Exists(productPath)) Directory.CreateDirectory(productPath);
-
-                    using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
+                    if (imageFile != null && imageFile.Length > 0)
                     {
-                        await imageFile.CopyToAsync(fileStream);
-                    }
-                    product.ImageUrl = @"/images/products/" + fileName;
-                }
+                        string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
 
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                        // استخدام _webHostEnvironment للوصول لمسار wwwroot الحقيقي
+                        string wwwRootPath = _webHostEnvironment.WebRootPath;
+                        string productPath = Path.Combine(wwwRootPath, "images", "products");
+
+                        if (!Directory.Exists(productPath))
+                            Directory.CreateDirectory(productPath);
+
+                        string fullPath = Path.Combine(productPath, fileName);
+                        using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(fileStream);
+                        }
+                        product.ImageUrl = "/images/products/" + fileName;
+                    }
+
+                    _context.Add(product);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    // لو حصل أي خطأ في السيرفر هيتحط هنا والبرنامج مش هيقفل
+                    ModelState.AddModelError("", "Error saving data: " + ex.Message);
+                }
             }
 
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", product.CategoryId);
@@ -136,7 +152,7 @@ namespace finalProj.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, Product product)
+        public async Task<IActionResult> Edit(int id, Product product, IFormFile? imageFile)
         {
             if (id != product.ProductId) return NotFound();
 
@@ -147,28 +163,44 @@ namespace finalProj.Controllers
             {
                 try
                 {
-                    var productInDb = await _context.Products.FindAsync(id);
+                    var productInDb = await _context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.ProductId == id);
                     if (productInDb == null) return NotFound();
 
-                    productInDb.Name = product.Name;
-                    productInDb.SKU = product.SKU;
-                    productInDb.Price = product.Price;
-                    productInDb.StockQuantity = product.StockQuantity;
-                    productInDb.CategoryId = product.CategoryId;
-                    productInDb.IsActive = product.IsActive;
-
-                    if (!string.IsNullOrEmpty(product.ImageUrl))
+                    if (imageFile != null && imageFile.Length > 0)
                     {
-                        productInDb.ImageUrl = product.ImageUrl;
+                        string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+
+                        // تعديل المسار هنا برضه للأمان
+                        string wwwRootPath = _webHostEnvironment.WebRootPath;
+                        string productPath = Path.Combine(wwwRootPath, "images", "products");
+
+                        if (!Directory.Exists(productPath))
+                            Directory.CreateDirectory(productPath);
+
+                        string fullPath = Path.Combine(productPath, fileName);
+                        using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(fileStream);
+                        }
+                        product.ImageUrl = "/images/products/" + fileName;
+                    }
+                    else
+                    {
+                        product.ImageUrl = productInDb.ImageUrl;
                     }
 
-                    _context.Update(productInDb);
+                    _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ProductExists(product.ProductId)) return NotFound();
                     else throw;
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Error updating product: " + ex.Message);
+                    return View(product);
                 }
                 return RedirectToAction(nameof(Index));
             }
